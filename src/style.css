@@ -336,6 +336,64 @@ section {
   border: 1px solid rgba(255,255,255,0.1);
 }
 
+/* Urgency Bar */
+.urgency-bar {
+  background: var(--color-primary);
+  color: white;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.urgency-bar .badge {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.urgency-bar .offer-text {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
+/* Footer */
+footer {
+  padding: 4rem 0;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  margin-top: 4rem;
+}
+
+footer .copyright {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+/* New Images Styles */
+.feature-image {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  margin-top: 2rem;
+}
+
 /* Final Responsive Adjustments */
 @media (max-width: 992px) {
   .mentor-grid, .faq-grid {
@@ -346,5 +404,10 @@ section {
   }
   .price-value {
     font-size: 4rem;
+  }
+  .urgency-bar {
+    font-size: 0.8rem;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 }
