@@ -2,23 +2,36 @@ import confetti from 'canvas-confetti';
 import Typed from 'typed.js';
 
 // Initialize Typed.js for the Hero Headline
-const typedHeadline = document.getElementById('typed-headline');
-// If typed-headline exists in HTML, initialize it. 
-// Added it to index.html in my mind but need to make sure <span> is there.
-// Actually I replaced h1 content with raw text in last write_to_file, 
-// let me fix index.html to include the span for typing if needed, 
-// OR just leave it as static if the user likes the "Agentic Builder" clean look.
-// The Agentic Builder page uses clean static text. I'll stick to static text for 
-// maximum "NoCode Startup" loyalty, but keep Typed for the "WOW" if user wants.
-// I'll keep it static for now as the user asked for "parecida com essa página".
+const typedElement = document.getElementById('typed-headline');
+if (typedElement) {
+  new Typed('#typed-headline', {
+    strings: [
+      'Em 7 dias você vai usar o Claude',
+      'Crie conteúdo estratégico com IA',
+      'Planeje um mês em 1 hora',
+      'Venda mais com menos esforço'
+    ],
+    typeSpeed: 50,
+    backSpeed: 30,
+    backDelay: 2000,
+    loop: true,
+    showCursor: true,
+    cursorChar: '|'
+  });
+}
 
 // Handle Buy Button Click (Kiwify Checkout)
 const checkoutButtons = document.querySelectorAll('.checkout-button');
 checkoutButtons.forEach(btn => {
   btn.addEventListener('click', (e) => {
-    e.preventDefault();
     const checkoutUrl = btn.getAttribute('href');
+    
+    // If it's just an anchor link, let the smooth scroll handle it
+    if (checkoutUrl.startsWith('#')) return;
 
+    e.preventDefault();
+
+    // Trigger confetti immediately
     confetti({
       particleCount: 150,
       spread: 70,
@@ -31,12 +44,20 @@ checkoutButtons.forEach(btn => {
     btn.style.opacity = "0.7";
     btn.style.pointerEvents = "none";
     
-    setTimeout(() => {
-      window.open(checkoutUrl, '_blank');
-      btn.innerText = originalText;
-      btn.style.opacity = "1";
-      btn.style.pointerEvents = "auto";
-    }, 1200);
+    // Check if mobile to avoid popup blockers in setTimeout
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      // Redirect in the same tab for mobile
+      window.location.href = checkoutUrl;
+    } else {
+      setTimeout(() => {
+        window.open(checkoutUrl, '_blank');
+        btn.innerText = originalText;
+        btn.style.opacity = "1";
+        btn.style.pointerEvents = "auto";
+      }, 800); // Reduced delay for better UX
+    }
   });
 });
 

@@ -8,8 +8,13 @@
     <meta name="description" content="O Desafio ContentOS é uma imersão de 7 dias para nutricionistas que desejam dominar o Claude IA para criar, planejar e vender conteúdo estratégico com alta conversão.">
     <meta name="keywords" content="Claude IA, Nutricionistas, Marketing para Nutricionistas, Produção de Conteúdo, Inteligência Artificial, Vendas no Instagram">
     <link rel="stylesheet" href="./src/style.css" />
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    
     <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous">
   </head>
   <body>
     <!-- Urgency Bar -->
@@ -30,14 +35,14 @@
         <div class="container">
           <div class="hero-tag">04 a 10 de maio de 2026</div>
           <h1>
-            <span class="gradient-text">Em 7 dias você vai usar o Claude</span><br>
+            <span class="gradient-text" id="typed-headline">Em 7 dias você vai usar o Claude</span><br>
             para criar, planejar e vender.
           </h1>
           <p>
             O Desafio ContentOS é para nutricionistas que querem parar de criar conteúdo no escuro e começar a usar IA como uma profissional, com sistema e estratégia.
           </p>
           <div style="margin-top: 2rem;">
-            <a href="#oferta" class="btn btn-primary">
+            <a href="https://pay.kiwify.com.br/9Uz80kS" target="_blank" class="btn btn-primary checkout-button">
               Quero minha vaga agora →
             </a>
             <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted);">
@@ -315,7 +320,7 @@
 
     <!-- Scripts -->
     <script type="module" src="./src/main.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" integrity="sha384-wziAfh6b/qT+3LrqebF9WeK4+J5sehS6FA10J1t3a866kJ/fvU5UwofWnQyzLtwu" crossorigin="anonymous"></script>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         AOS.init({

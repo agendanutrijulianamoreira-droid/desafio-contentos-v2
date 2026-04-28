@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://agendanutrijulianamoreira-droid.github.io/desafio-contentos-v2/sitemap.xml
